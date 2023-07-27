@@ -1,0 +1,27 @@
+\defbeamertemplate*{title page}{customized}[1][] {
+%
+	\begin{tikzpicture}[remember picture,overlay]\node[at=(current page.center), opacity=0.8] {
+		\includegraphics[width=1.14\paperwidth]{figures/main/bkg}};
+	\end{tikzpicture}
+%
+	\begin{tcolorbox}[beamer, no shadow, title=\inserttitle, fonttitle=\LARGE\bfseries, arc=1mm, opacityback=.6, opacityframe=.6, halign=center, halign title=center]
+		\insertsubtitle
+	\end{tcolorbox}%
+%
+	\vspace*{.15\textheight}
+%
+	\centering
+	\begin{tcolorbox}[beamer, no shadow, arc=1mm, width=3.4cm, opacityback=.5, opacityframe=.5, halign=center, left=1mm, right=1mm]
+		\textbf{\insertauthor}\\[3pt]
+		\insertdate
+	\end{tcolorbox}
+	\vspace*{.1\textheight}
+}
+%
+{
+	\setbeamertemplate{headline}{}
+	\setbeamertemplate{footline}{}
+	\begin{frame}[noframenumbering]
+		\maketitle
+	\end{frame}
+}
