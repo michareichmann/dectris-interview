@@ -93,3 +93,13 @@
 \newenvironment{conclusion}[1][] {\usebackgroundtemplate{\includegraphics[width=\paperwidth]{figures/main/bulb}}\begin{frame}{Conclusion #1} } { \end{frame} }
 % SUMMARY
 \newenvironment{summary}[1][] {\begin{frame}{Summary #1} } { \end{frame} }
+% PHOTO
+\NewDocumentCommand{\roundphoto}{m m O{2pt}}{
+	\begin{minipage}{#2cm}
+		\begin{tikzpicture}
+			\path[fill overzoom image={#1}] circle (0.5\linewidth);
+			\draw[line width={#3}, darkgray] circle (0.5\linewidth);
+			\draw[white] circle (0.45\linewidth);
+		\end{tikzpicture}
+	\end{minipage}}
+

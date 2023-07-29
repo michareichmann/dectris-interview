@@ -1,21 +1,25 @@
 \defbeamertemplate*{title page}{customized}[1][] {
 %
-	\begin{tikzpicture}[remember picture,overlay]\node[at=(current page.center), opacity=0.8] {
-		\includegraphics[width=1.14\paperwidth]{figures/main/bkg}};
-	\end{tikzpicture}
+%	\begin{tikzpicture}[remember picture,overlay]\node[at=(current page.center), opacity=0.8] {
+%		\includegraphics[width=1.14\paperwidth]{figures/main/bkg}};
+%	\end{tikzpicture}
 %
-	\begin{tcolorbox}[beamer, no shadow, title=\inserttitle, fonttitle=\LARGE\bfseries, arc=1mm, opacityback=.6, opacityframe=.6, halign=center, halign title=center]
-		\insertsubtitle
+	\begin{tcolorbox}[beamer, no shadow, opacityback=.6, opacityframe=.6, width=1.05\textwidth, grow to left by=5mm, left=1cm, top=5mm, bottom=5mm, interior style={top color=blue!20!green!50!white,bottom color=blue!20!yellow!50!white}]
+		\begin{minipage}{.33\textwidth}\centering
+			% PHOTO
+			\roundphoto{\inserttitlegraphic}{3}
+			% NAME
+			\begin{tcolorbox}[beamer, no shadow, colback=white, arc=3mm, width=4cm, halign=center, left=1mm, right=1mm]
+				\textbf{\bfseries\Large\insertauthor}
+			\end{tcolorbox}
+		\end{minipage}\hspace*{1cm}
+		\begin{minipage}{.01\textwidth}
+			\tikz\draw[white, line width=2pt,line cap=round] (0,2)--(0,-2);
+		\end{minipage}
+		\begin{minipage}{.6\textwidth}\centering
+			\bfseries\Huge\inserttitle
+		\end{minipage}
 	\end{tcolorbox}%
-%
-	\vspace*{.15\textheight}
-%
-	\centering
-	\begin{tcolorbox}[beamer, no shadow, arc=1mm, width=3.4cm, opacityback=.5, opacityframe=.5, halign=center, left=1mm, right=1mm]
-		\textbf{\insertauthor}\\[3pt]
-		\insertdate
-	\end{tcolorbox}
-	\vspace*{.1\textheight}
 }
 %
 {
