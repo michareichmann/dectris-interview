@@ -1,3 +1,4 @@
+% -----------------------------------------------------------------------------------------
 %! region BEAMER
 \usetheme{Boadilla}
 \graphicspath{ {figures/} {figures/main/} }
@@ -17,30 +18,24 @@
 \hypersetup{colorlinks=true, linkcolor=darkgray, urlcolor=blue}
 % -----------------------------------------------------------------------------------------
 %! region COLORS
-\setbeamercolor{frametitle}{bg=darkgray!30!white, fg=darkgray}
-\setbeamercolor{date in head/foot}{bg=lightgray}
-\setbeamercolor{title in head/foot}{bg=darkgray, fg=lightgray}
+  %! region green/yellow
+  \colorlet{colone}{LimeGreen!80!white}
+  \colorlet{coltwo}{GreenYellow!80!white}
+  \setbeamercolor{frametitle}{bg=colone}
+  \setbeamercolor{frametitle right}{bg=coltwo}
+  %! endregion
+  %! region gray
+  %\setbeamercolor{frametitle}{bg=darkgray!30!white, fg=darkgray}
+  \setbeamercolor{date in head/foot}{bg=lightgray}
+  \setbeamercolor{title in head/foot}{bg=darkgray, fg=lightgray}
+  %! endregion
 %! endregion
 % -----------------------------------------------------------------------------------------
+%! region INPUTS
 \input{preamble/definitions}
 \input{preamble/headline}
 \input{preamble/footline}
 \input{preamble/sectionpage}
 \addtobeamertemplate{footline}{\hypersetup{allcolors=.}}{}
-%
-%! region UNITS
-\sisetup{detect-weight=true, detect-family=true, range-units=single, range-phrase=$\ \sim\ $, separate-uncertainty=true, exponent-product=\ensuremath{\cdot}, retain-explicit-plus=true}
-\DeclareSIUnit\mhzcm{\mega\hertz\per\centi\meter^2}
-\DeclareSIUnit\khzcm{\kilo\hertz\per\centi\meter^2}
-\DeclareSIUnit\ghzcm{\giga\hertz\per\centi\meter^2}
-\DeclareSIUnit\ncm{n\per\centi\meter^2}
-\DeclareSIUnit\ev{\electronvolt}
-\DeclareSIUnit\gev{\giga\ev}
-\DeclareSIUnit\mev{\mega\ev}
-\DeclareSIUnit\c{c}
-\DeclareSIUnit\mevc{\mev/c}
-\DeclareSIUnit\gevc{\gev/c}
-\DeclareSIUnit\permille{\text{\textperthousand}}
-\DeclareSIUnit\Vmu{\V\per\um}
 %! endregion
 % -----------------------------------------------------------------------------------------
