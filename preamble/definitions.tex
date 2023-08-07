@@ -1,3 +1,5 @@
+\newcommand{\itemfill}{\setlength{\itemsep}{\fill}}
+\renewcommand{\quote}[1]{{\color{colthree}\itshape``#1''\par}}
 \newcommand{\caplab}[2]{\ifthenelse{\equal{#1}{nocap}}{}{\caption{#1}}\ifthenelse{\equal{#2}{nolab}}{}{\label{#2}}}
 \newcommand{\pic}[3]{\ifthenelse{\equal{#1}{r}}{\includegraphics[width={#2\textheight}, angle=-90]{#3}}{\includegraphics[height={#2\textheight}]{#3}}}
 % SUBFIG
@@ -73,12 +75,41 @@
 % SUMMARY
 \newenvironment{summary}[1][] {\begin{frame}{Summary #1} } { \end{frame} }
 % PHOTO
-\NewDocumentCommand{\roundphoto}{m m O{2pt}}{
+\NewDocumentCommand{\roundphoto}{m m O{2pt} O{.5pt} O{darkgray}}{
 	\begin{minipage}{#2cm}
 		\begin{tikzpicture}
 			\path[fill overzoom image={#1}] circle (0.5\linewidth);
-			\draw[line width={#3}, darkgray] circle (0.5\linewidth);
-			\draw[white] circle (0.45\linewidth);
+			\ifthenelse{\equal{#3}{0}}{}{\draw[line width={#3}, #5] circle (0.5\linewidth)};
+			\ifthenelse{\equal{#4}{0}}{}{\draw[white, line width={#4}] circle (0.45\linewidth)};
 		\end{tikzpicture}
 	\end{minipage}}
-
+% SEPERATION LINE
+\NewDocumentCommand{\sepline}{O{white} O{1} O{.01}}{
+	\begin{minipage}{#3\textwidth}\centering
+		\tikz\draw[#1, line width=#2pt,line cap=round] (0,2)--(0,-2);
+	\end{minipage}}
+\NewDocumentCommand{\seplinea}{m O{darkgray} O{1} O{.01}}{
+	\begin{minipage}{#4\textwidth}\centering
+		\tikz{
+			\path[top color=white, bottom color=#2,rounded corners=0.3mm] (+-#3pt, -0.03) rectangle (+#3pt, #1);
+			\path[top color=#2, bottom color=white,rounded corners=0.3mm] (+-#3pt, 0.03) rectangle (+#3pt,-#1);}
+	\end{minipage}}
+% SLIDER
+\NewDocumentCommand{\slider}{m O{7ex}}{
+	\tikz[baseline=-0.1cm]{
+		\coordinate (start) at (0,-0.1cm);
+		\coordinate (end) at (#2,0.1cm);
+		\coordinate (mark) at ($(start|-0,0)!#1!(end|-0,0)$);
+		\fill[rounded corners=0.1cm, draw=gray, bottom color=lightgray, top color=darkgray, middle color=lightgray] (start) rectangle (end);
+		\shade[draw=darkgray, rounded corners=0.2mm, ball color=colone] (mark) circle(.15) ; } }
+\NewDocumentCommand{\pers}{m m m O{7ex}}{\footnotesize #1 \hfill #2\\\centering\slider{#3}[#4]}
+% PROGRESS BAR
+\NewDocumentCommand{\pbar}{m O{7ex}}{
+	\begin{tikzpicture}[rounded corners=2pt,very thin]
+		\coordinate (start) at ( 0,   -.1cm);
+		\coordinate (end)   at (#2,    .1cm);
+		\coordinate (mark)  at (#1*#2, .1cm);
+		\fill[rounded corners=0.1cm, draw=gray, bottom color=lightgray, top color=darkgray, middle color=lightgray] (start) rectangle (end);
+		\shade[draw=darkgray,top color=colone, bottom color=black,middle color=colone] 		(start) rectangle (mark);
+	\end{tikzpicture}}
+\NewDocumentCommand{\motiv}{m m O{7ex}}{\flushleft\footnotesize #1\hfill\\ \pbar{#2}[#3]}
