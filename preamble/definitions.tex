@@ -1,4 +1,6 @@
-\newcommand{\sg}{\\[9.5pt]}
+\newcommand{\sg}{\\[2ex]}
+\newcommand{\skg}{\\[4.2ex]}
+\newcommand{\sgu}{\\[1.2ex]}
 \newcommand{\mg}{\\[15.5pt]}
 \newcommand{\cpp}{C\nolinebreak\hspace{-.15em}\raisebox{.15ex}{\footnotesize\textbf{+\hspace*{-.1em}+}}\xspace}
 \newcommand{\itemfill}{\setlength{\itemsep}{\fill}}
@@ -117,4 +119,5 @@
 		\fill[rounded corners=0.1cm, draw=gray, bottom color=lightgray, top color=darkgray, middle color=lightgray] (start) rectangle (end);
 		\shade[draw=darkgray,top color=colone, bottom color=black,middle color=colone] 		(start) rectangle (mark);
 	\end{tikzpicture}}
-\NewDocumentCommand{\motiv}{m m O{7ex}}{\flushleft\footnotesize #1\hfill\\ \pbar{#2}[#3]}
+\NewDocumentCommand{\motiv}{m m O{7ex}}{\parbox{#3}{\flushleft\footnotesize#1} \pbar{#2}[#3]}
+\NewDocumentCommand{\skill}{m m O{7ex}}{\pbar{#2}[#3]\\[-6.5mm]\hspace*{-3mm}\parbox{#3}{\flushleft\includegraphics[height=6mm]{#1}}}
