@@ -32,6 +32,36 @@
   %! endregion
 %! endregion
 % -----------------------------------------------------------------------------------------
+%! region UNITS
+\sisetup{detect-weight=true, detect-family=true, range-units=single, range-phrase=$\ \sim\ $, separate-uncertainty=true, exponent-product=\ensuremath{\cdot}, retain-explicit-plus=true}
+
+\newcommand{\SIerr}[4]{\qty[parse-numbers=false]{#1^{+#2}_{-#3}}{#4}}
+\newcommand{\numerr}[3]{\num[parse-numbers=false]{#1^{+#2}_{-#3}}}
+\newcommand{\SIserr}[4]{\qty[parse-numbers=false]{\text{#1 \textpm\ #2 (stat.) \textpm\ #3 (sys.)}}{#4}}
+\newcommand{\magrange}[2]{\numrange[retain-unity-mantissa=false]{#1}{#2}}
+\newcommand{\tunit}[1]{[\unit[reset-text-series = false]{#1}]}
+\DeclareSIUnit\au{a.\kern u.}
+\DeclareSIUnit\ghzcm{\giga\hertz\per\square\cm}
+\DeclareSIUnit\mhzcm{\mega\hertz\per\square\cm}
+\DeclareSIUnit\khzcm{\kilo\hertz\per\square\cm}
+\DeclareSIUnit\n{n}
+\DeclareSIQualifier\equivalent{eq}
+\DeclareSIUnit\neq{\n\equivalent}
+\DeclareSIUnit\ncm{\n\per\square\cm}
+\DeclareSIUnit\neqcm{\neq\per\square\cm}
+\DeclareSIUnit\eh{eh}
+\DeclareSIUnit\c{c}
+\DeclareSIUnit\mevc{\MeV\per\c}
+\DeclareSIUnit\gevc{\GeV\per\c}
+\DeclareSIUnit\Bq{\becquerel}
+\DeclareSIUnit\MBq{\mega\Bq}
+\DeclareSIUnit\rad{\radian}
+\DeclareSIUnit\murad{\micro\radian}
+\DeclareSIUnit\Vmu{\V\per\um}
+\DeclareSIUnit\mob{\square\cm\per\V\per\s}
+\DeclareSIUnit\sig{\ac{STD}}
+%! endregion
+% -----------------------------------------------------------------------------------------
 %! region INPUTS
 \input{preamble/definitions}
 \input{preamble/headline}
