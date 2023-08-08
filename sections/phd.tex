@@ -1,10 +1,129 @@
-% ------------------------------------------------------------------------------------------
 \section{Case Study}
-\begin{frame}{Diamond particle detector}
+% ------------------------------------------------------------------------------------------
+\begin{bframe}{Silicon \ra diamond}{cms-tracker-m}{1}
+%
+  \begin{bbox}{.45}
+    \item vast majority of tracking detectors have silicon sensors
+    \item extensively used in electronics
+    \item easy to manipulate electronic properties
+    \item abundance in nature
+    \item<2> \bad{current detector not radiation tolerant}
+  \end{bbox}
+%
+\end{bframe}
+% ------------------------------------------------------------------------------------------
+\begin{bframe}{Test site}{hipa}{1.2}\hypersetup{linkcolor=white!70!black}
+%
+\vspace*{-.3\textheight}
+\begin{bbox}{.45}
+  \item \ac{HIPA} at \ac{PSI}
+  \item \SI{590}{\MeV} bunched proton beam
+  \item up to \SI{1.3}{\MW} beam power
+%    \item up to \SI{2.2}{\mA} beam current
+%    \item bunch spacing \SI{19.75}{\ns}
+\end{bbox}
+%
+\note{
+  \begin{itemize}
+    \item highest power in the world
+  \end{itemize} }
+%
+\end{bframe}
+% ------------------------------------------------------------------------------------------
+\begin{bframe}{\pim beam line}{pim1}{1}
+%
+  \raggedleft
+  \begin{bbox}{.42}
+    \item secondary pion beam
+    \item $\pi^+$ with \SI{260}{\mevc}
+    \item particle flux: \SI{1}{\khzcm} up to \SI{20}{\mhzcm}
+%    \item beam composition: 97/2/1 ($\pi^+$/$e^+$/$\mu^+$)
+  \end{bbox}
+%
+  \note{
+    \begin{itemize}
+      \item proton beam shot on graphite target
+      \item creating secondary pion beam
+    \end{itemize}}
+%
+\end{bframe}
+% ------------------------------------------------------------------------------------------
+\begin{frame}{Setup}
+%
+  \only<1>{\vspace*{.1\textheight}\fig{.4}{setup}\vspace*{.1\textheight}}
+  \only<2>{\fig{.6}{tel}}
+  \begin{itemize}\itemfill
+    \item designing and commissioning beam telescope made from hybrid Si-pixel detectors
+    \item reconstruct trajectory of the beam particles
+    \item other instruments: digitiser, power supplies, trigger unit, NIM logic \ldots
+  \end{itemize}
+%
+  \only<2>{\note{
+    \begin{itemize}
+      \item mention Si reference
+      \item use either pad or pixel
+    \end{itemize} }}
+%
+\end{frame}
+% ------------------------------------------------------------------------------------------
+\begin{frame}{Data-acquisition}
+%
+  \fig{.5}{eudaq}
 %
   \begin{itemize}\itemfill
-    \item bla
+    \item adjusting and further developing existing software
+    \item controlling and monitoring several devices
+    \item save combined data stream
+    \item long process of improvements \ra in the end data was taken autonomously
   \end{itemize}
+%
+\end{frame}
+% ------------------------------------------------------------------------------------------
+\begin{frame}{Debugging \ldots}
+%
+  \fig{.5}{crash}
+%
+  \begin{itemize}\itemfill
+    \item several beam tests \ra each time install setup
+    \item many devices, various persons, different programming languages, new stuff \ldots
+    \item errors occurred
+    \item on-site debugging, programming and developing
+  \end{itemize}
+%
+\end{frame}
+% ------------------------------------------------------------------------------------------
+\begin{frame}{Analysis}
+%
+  \begin{subfigures}
+    \subfig{.5}{sm-a2-2a-i.jpg}
+    \subfig{.5}{sm-b6-1e.jpg}
+  \end{subfigures}
+%
+  \begin{itemize}\itemfill
+    \item developed analysis framework from scratch with \num{\sim20000} lines of code
+    \item converting raw data, aligning telescope and data, tracking, analysing
+    \item python script utilising several other scripts in python and \cpp
+  \end{itemize}
+%
+\end{frame}
+% ------------------------------------------------------------------------------------------
+\begin{frame}{Results}\centering
+%
+  \begin{tbox}[.7]
+    \item well working beam telescope
+    \item diamond works well as particle detector
+    \item \ldots more in my \href{https://doi.org/10.3929/ethz-b-000611857}{thesis}
+  \end{tbox}
+  %
+  \setsansfont{Lato}
+  \begin{center}
+    \begin{tcolorbox}[colback=red!5!white, colframe=white!70!red, width=.92\textwidth, arc=4mm, halign=center, valign=center]
+      \textbf{\textsc{Michael Philipp Reichmann}}
+      \tcblower
+      \huge\centering
+      \textcolor{chapter-color}{\textbf{\textsc{A Particle Tracker for an Extreme Radiation Environment with Strongly Changing Fluxes: pCVD Diamond}}}
+    \end{tcolorbox}
+  \end{center}
 %
 \end{frame}
 % ------------------------------------------------------------------------------------------
