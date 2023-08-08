@@ -4,11 +4,13 @@
 \newcommand{\mg}{\\[15.5pt]}
 \newcommand{\cpp}{C\nolinebreak\hspace{-.15em}\raisebox{.15ex}{\footnotesize\textbf{+\hspace*{-.1em}+}}\xspace}
 \newcommand{\itemfill}{\setlength{\itemsep}{\fill}}
+\NewDocumentCommand{\itemspace}{m}{\setlength\itemsep{#1}}
 \renewcommand{\quote}[1]{{\color{colthree}\itshape``#1''\par}}
 \NewDocumentCommand{\header}{m O{colthree} O{\normalsize}}{{\color{#2}#3\bfseries#1}}
 \NewDocumentCommand{\edu}{O{100} m m m m}{\begin{minipage}{.3\textwidth}\header{#2}[colthree!#1!black]\\[2pt]\footnotesize#3\\#4\\#5\end{minipage}}
 \newcommand{\caplab}[2]{\ifthenelse{\equal{#1}{nocap}}{}{\caption{#1}}\ifthenelse{\equal{#2}{nolab}}{}{\label{#2}}}
 \newcommand{\pic}[3]{\ifthenelse{\equal{#1}{r}}{\includegraphics[width={#2\textheight}, angle=-90]{#3}}{\includegraphics[height={#2\textheight}]{#3}}}
+\NewDocumentCommand{\figw}{m m}{\includegraphics[width=#2\textwidth]{#1}}
 % SUBFIG
 \DeclareDocumentCommand{\subfig}{O{.49} O{0} O{0} m m O{nocap} O{nolab}}{\begin{subfigure}[t]{#1\textwidth}\vspace*{#2\textheight}\centering\includegraphics[height={#4\textheight}]{#5}\vspace*{#3\textheight}\caplab{#6}{#7}\end{subfigure}}
 % SUBFIGS
@@ -95,7 +97,7 @@
 	\begin{minipage}{#3\textwidth}\centering
 		\tikz\draw[#1, line width=#2pt,line cap=round] (0,2)--(0,-2);
 	\end{minipage}}
-\NewDocumentCommand{\seplinea}{m O{darkgray} O{1} O{.01}}{
+\NewDocumentCommand{\seplinea}{m O{darkgray} O{.5} O{.04}}{
 	\begin{minipage}{#4\textwidth}\centering
 		\tikz{
 			\path[top color=white, bottom color=#2,rounded corners=0.3mm] (+-#3pt, -0.03) rectangle (+#3pt, #1);
