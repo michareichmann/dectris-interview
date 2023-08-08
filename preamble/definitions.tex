@@ -123,3 +123,9 @@
 	\end{tikzpicture}}
 \NewDocumentCommand{\motiv}{m m O{7ex}}{\parbox{#3}{\flushleft\footnotesize#1} \pbar{#2}[#3]}
 \NewDocumentCommand{\skill}{m m O{7ex}}{\pbar{#2}[#3]\\[-6.5mm]\hspace*{-3mm}\parbox{#3}{\flushleft\includegraphics[height=6mm]{#1}}}
+\NewDocumentCommand{\placeobj}{m m m}{
+	\begin{tikzpicture}[remember picture,overlay]
+		\node[outer sep=0pt,inner sep=0pt,anchor=south west]
+		at ([xshift=#1\textwidth,yshift=-#2\textheight] current page.north west) {#3};
+	\end{tikzpicture}
+}
