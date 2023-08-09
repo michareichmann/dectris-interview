@@ -1,5 +1,41 @@
 \section{Case Study}
 % ------------------------------------------------------------------------------------------
+\begin{frame}{Rate dependece of pCVD diamond pad detectors}
+%
+  \only<1>{\fig{.5}{pad-full}}
+  \only<2>{\fig{.5}{plt}}
+%
+  \header{Goal:}[\Large]\vspace*{1ex}
+  \begin{itemize}
+    \item study signal response as a function of incident particle rate
+  \end{itemize}\vspace*{2ex}
+%
+  \header{Main Challenges:}[\Large]\vspace*{1ex}
+  \begin{itemize}\itemfill
+    \item design and construct experimental setup and run the experiments
+    \item analyse the data
+  \end{itemize}
+%
+\end{frame}
+% ------------------------------------------------------------------------------------------
+\begin{frame}{Rate dependece of pCVD diamond pad detectors}
+%
+  %
+  \begin{minipage}{.6\textwidth}
+    \begin{itemize}\itemspace{2ex}
+      \item part of the CERN RD42 collaboration (\num{\sim100} members)
+      \item detectors developed and provided by the collaboration
+      \item I was leading group of \numrange{3}{10} during the experiments
+    \end{itemize}
+  \end{minipage}
+  %
+  \begin{minipage}{.35\textwidth}\centering
+    \Large\bfseries RD42 collaboration\vspace*{-2ex}
+    \fig{.6}{rd42}
+  \end{minipage}
+%
+\end{frame}
+% ------------------------------------------------------------------------------------------
 \begin{bframe}{Silicon \ra diamond}{cms-tracker-m}{1}
 %
   \begin{bbox}{.45}
@@ -53,7 +89,7 @@
   \only<1>{\vspace*{.1\textheight}\fig{.4}{setup}\vspace*{.1\textheight}}
   \only<2>{\fig{.6}{tel}}
   \begin{itemize}\itemfill
-    \item designing and commissioning beam telescope made from hybrid Si-pixel detectors
+    \item commissioning beam telescope made from hybrid Si-pixel detectors
     \item reconstruct trajectory of the beam particles
     \item other instruments: digitiser, power supplies, trigger unit, NIM logic \ldots
   \end{itemize}
@@ -63,6 +99,16 @@
       \item mention Si reference
       \item use either pad or pixel
     \end{itemize} }}
+%
+\end{frame}% ------------------------------------------------------------------------------------------
+\begin{frame}{Setup - challenges \& solutions}\centering
+%
+  \begin{tabular}[h]{rcl}
+    \header{Challenges}[\Large] & $\Longleftrightarrow$ & \header{Solutions}[\Large] \\[4ex]
+    \makecell[r]{detector incompatible with\\readout device} & \bullet & \makecell[l]{extending readout software and firmware\\to read analogue levels of the detector}\\[4ex]
+    \makecell[r]{problems with reflections and\\signal routing on the PCB} & \bullet & \makecell[l]{investigating chip signals with oscilloscope\\redesigning the PCB with an\\electrical engineer} \\[4ex]
+    \makecell[r]{tedious setup and initialising process} & \bullet & \makecell[l]{writing code to automate the process}\\[4ex]
+  \end{tabular}
 %
 \end{frame}
 % ------------------------------------------------------------------------------------------
@@ -100,18 +146,37 @@
   \end{subfigures}
 %
   \begin{itemize}\itemfill
-    \item developed analysis framework from scratch with \num{\sim20000} lines of code
+    \item developed analysis framework from scratch with \num{>10000} lines of code
     \item converting raw data, aligning telescope and data, tracking, analysing
     \item python script utilising several other scripts in python and \cpp
   \end{itemize}
 %
 \end{frame}
 % ------------------------------------------------------------------------------------------
+\begin{frame}{Analysis code}
+%
+  \begin{minipage}{.45\textwidth}
+    \begin{itemize}\itemspace{2ex}
+      \item modular architecture \ra object-oriented
+      \item open-source (\href{https://github.com/diamondIPP/RateAnalysis.git}{github})
+      \item well documented
+      \item developed \href{https://github.com/michareichmann/rootplots.git}{ROOT wrapper} for plotting data
+    \end{itemize}
+  \end{minipage}
+  %
+  \begin{minipage}{.52\textwidth}
+    \fig{.8}{uml}
+  \end{minipage}
+%
+\end{frame}
+% ------------------------------------------------------------------------------------------
 \begin{frame}{Results}\centering
 %
   \begin{tbox}[.7]
-    \item well working beam telescope
-    \item diamond works well as particle detector
+    \item developed beam telescope
+    \item irradiated pCVD diamond depends less than \SI{2}{\percent} on incident particle rate
+    \item presented on several international conferences
+    \item published in three conference proceedings
     \item \ldots more in my \href{https://doi.org/10.3929/ethz-b-000611857}{thesis}
   \end{tbox}
   %

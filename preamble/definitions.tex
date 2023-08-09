@@ -9,8 +9,8 @@
 \renewcommand{\quote}[2]{{\color{colthree}\itshape``#1''\par}\vspace*{3pt}{\color{gray}\raggedleft\scriptsize#2\par}}
 \newcommand{\ra}{$\rightarrow$\xspace}
 \newcommand{\bad}[1]{\textcolor{OrangeRed}{#1}}
-\NewDocumentCommand{\header}{m O{colthree} O{\normalsize}}{{\color{#2}#3\bfseries#1}}
-\NewDocumentCommand{\edu}{O{100} m m m m}{\begin{minipage}{.3\textwidth}\header{#2}[colthree!#1!black]\\[2pt]\footnotesize#3\\#4\\#5\end{minipage}}
+\NewDocumentCommand{\header}{m O{\normalsize} O{colthree}}{{\color{#3}#2\bfseries#1}}
+\NewDocumentCommand{\edu}{O{100} m m m m}{\begin{minipage}{.3\textwidth}\header{#2}[\normalsize][colthree!#1!black]\\[2pt]\footnotesize#3\\#4\\#5\end{minipage}}
 \newcommand{\caplab}[2]{\ifthenelse{\equal{#1}{nocap}}{}{\caption{#1}}\ifthenelse{\equal{#2}{nolab}}{}{\label{#2}}}
 \newcommand{\pic}[3]{\ifthenelse{\equal{#1}{r}}{\includegraphics[width={#2\textheight}, angle=-90]{#3}}{\includegraphics[height={#2\textheight}]{#3}}}
 \NewDocumentCommand{\figw}{m m}{\includegraphics[width=#2\textwidth]{#1}}
